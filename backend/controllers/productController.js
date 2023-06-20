@@ -10,7 +10,7 @@ const createProduct = asyncHandler(async (req, res) => {
   //   Validation
   if (!name || !category || !quantity || !price || !description) {
     res.status(400);
-    throw new Error("Please fill in all fields");
+    throw new Error("Preencha todos os campos");
   }
 
   // Handle Image upload
@@ -20,7 +20,7 @@ const createProduct = asyncHandler(async (req, res) => {
     let uploadedFile;
     try {
       uploadedFile = await cloudinary.uploader.upload(req.file.path, {
-        folder: "Pinvent App",
+        folder: "StockWise",
         resource_type: "image",
       });
     } catch (error) {
